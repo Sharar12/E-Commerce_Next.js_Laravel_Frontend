@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ⚡ QUANTIZED & HARDWARE-ACCELERATED 3D BRICK FLOATING SYSTEM */
+@keyframes float-3d-gold-brick {
+  0%, 100% {
+    transform: perspective(1000px) translate3d(0px, 0px, 0px) rotateX(1.5deg) rotateY(-1.5deg);
+  }
+  25% {
+    transform: perspective(1000px) translate3d(0px, -10px, 8px) rotateX(3deg) rotateY(-3deg);
+  }
+  50% {
+    transform: perspective(1000px) translate3d(0px, -16px, 14px) rotateX(-2deg) rotateY(3deg);
+  }
+  75% {
+    transform: perspective(1000px) translate3d(0px, -8px, 6px) rotateX(2deg) rotateY(-1.5deg);
+  }
+}
+
+/* 🌟 QUANTIZED BACKGROUND STAR TWINKLE */
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.2) translateZ(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) translateZ(0);
+  }
+}
+
+/* 💎 HARDWARE-ACCELERATED GLASS REFLECTION SHIMMER */
+@keyframes glass-reflection-sweep {
+  0% {
+    transform: translate3d(-150%, -150%, 0) rotate(45deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50%, 100% {
+    transform: translate3d(150%, 150%, 0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.floating-card {
+  position: relative !important;
+  animation: float-3d-gold-brick 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite !important;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease-in-out !important;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  border: 1px solid rgba(197, 160, 89, 0.6) !important;
+  box-shadow: 
+    -1px 1px 0px #C5A059,
+    -2px 2px 0px #C5A059,
+    -5px 10px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Glass Reflection Sweep Overlay Layer */
+.floating-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.03) 42%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.03) 58%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: glass-reflection-sweep 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  pointer-events: none;
+  z-index: 30;
+  transform: translateZ(0);
+}
+
+/* Background Twinkling Star Pseudo-Element */
+.floating-card::after {
+  content: "✦";
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  font-size: 14px;
+  color: #D4AF37;
+  pointer-events: none;
+  z-index: -1;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
+  animation: star-twinkle 4s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+/* 3D Water Ripple Phase Offsets */
+.floating-card:nth-child(2n) {
+  animation-delay: -2.5s !important;
+}
+.floating-card:nth-child(2n)::before {
+  animation-delay: -2.5s !important;
+}
+
+.floating-card:nth-child(3n) {
+  animation-delay: -5s !important;
+}
+.floating-card:nth-child(3n)::before {
+  animation-delay: -5s !important;
+}
+
+.floating-card:nth-child(4n) {
+  animation-delay: -7.5s !important;
+}
+.floating-card:nth-child(4n)::before {
+  animation-delay: -7.5s !important;
+}
+
+/* Quantized Hover Elevation Surge */
+.floating-card:hover {
+  animation-play-state: paused !important;
+  transform: perspective(1000px) translate3d(0px, -18px, 20px) rotateX(2deg) rotateY(-2deg) scale(1.02) !important;
+  box-shadow: 
+    -1px 2px 0px #C5A059,
+    -2px 4px 0px #C5A059,
+    -10px 24px 35px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Pause the reflection sweep on hover */
+.floating-card:hover::before {
+  animation-play-state: paused !important;
+}
