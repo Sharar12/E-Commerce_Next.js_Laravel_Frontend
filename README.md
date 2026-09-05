@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce Next.js + Laravel — Frontend
+
+A full-featured e-commerce frontend built with **Next.js, React, TypeScript, Tailwind CSS, Redux Toolkit, Recharts, Zod, and Radix UI primitives**. This repository contains the frontend application for a commerce platform designed to work with a separate Laravel backend.
+
+## Overview
+
+The frontend contains customer-facing shopping flows as well as administrative interfaces. The current codebase includes dedicated routes/components for authentication, products, categories, shopping cart, checkout, best sellers, new arrivals, and admin dashboard functionality.
+
+## Tech Stack
+
+| Technology | Purpose |
+| --- | --- |
+| [Next.js](https://nextjs.org/) 15 | Application framework and routing |
+| [React](https://react.dev/) 19 | UI development |
+| [TypeScript](https://www.typescriptlang.org/) | Static typing |
+| [Tailwind CSS](https://tailwindcss.com/) 4 | Styling and responsive layouts |
+| [Redux Toolkit](https://redux-toolkit.js.org/) | Application state management |
+| [Recharts](https://recharts.org/) | Dashboard/data visualization |
+| [Zod](https://zod.dev/) | Validation and typed schemas |
+| [Radix UI](https://www.radix-ui.com/) | Accessible UI primitives |
+| [Lucide React](https://lucide.dev/) | Icons |
+
+## Key Features
+
+### Storefront
+
+- Product browsing and product detail flows
+- Category pages and category navigation
+- Best-seller and new-arrival sections
+- Search/filter-oriented product interfaces
+- Responsive reusable product/card components
+
+### Shopping
+
+- Shopping cart
+- Checkout flow
+- Product filtering
+- Customer-facing commerce layouts
+
+### Authentication
+
+- Dedicated authentication routes
+- Login-related frontend flows
+- Shared application layout and UI infrastructure
+
+### Admin
+
+- Dedicated admin area
+- Dashboard-oriented components
+- Best-seller statistics and filtering components
+- Reusable layout controls
+- Administrative component organization
+
+## Project Structure
+
+```text
+E-Commerce_Next.js_Laravel_Frontend/
+├── app/
+│   ├── about/              # About page
+│   ├── admin/              # Admin dashboard area
+│   ├── auth/               # Authentication routes
+│   ├── best-sellers/       # Best-seller views
+│   ├── cart/               # Shopping cart
+│   ├── categories/         # Category listing
+│   ├── checkout/           # Checkout
+│   ├── common/             # Shared application pages
+│   ├── components/         # Reusable UI components
+│   ├── contexts/           # React context providers
+│   ├── data/               # Mock product/category/sales data
+│   └── ...                 # Additional commerce routes
+│
+├── utils/                  # Shared utility modules
+├── public/                 # Static assets
+├── next.config.ts
+├── postcss.config.mjs
+├── eslint.config.mjs
+├── package.json
+└── README.md
+```
+
+## Development Data
+
+The repository currently includes mock data modules for categories, products, new arrivals, best sellers, and sales in `app/data/`. These are useful for frontend development and UI prototyping and should be treated separately from production backend data.
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone
+
+```bash
+git clone https://github.com/Sharar12/E-Commerce_Next.js_Laravel_Frontend.git
+cd E-Commerce_Next.js_Laravel_Frontend
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project uses Next.js with Turbopack for the development command and opens at the local development URL shown by Next.js.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev      # Start Next.js development server with Turbopack
+npm run build    # Create the production build
+npm run start    # Start the production server
+npm run lint     # Run ESLint
+```
 
-## Learn More
+## Backend Integration
 
-To learn more about Next.js, take a look at the following resources:
+The repository name indicates a **Next.js + Laravel** architecture. This repository is the **frontend application**; Laravel API services, database operations, and backend business rules belong in the separate backend repository.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+When backend integration is added or changed, keep API/service configuration environment-based rather than hard-coding production endpoints in components.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Frontend Scope
 
-## Deploy on Vercel
+This repository is intended for the web interface, client-side state, navigation, presentation components, validation, and frontend application behavior. It does not replace the Laravel backend or its server-side authorization.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Keep mock data isolated from production API adapters.
+- Keep reusable components in `app/components/` and shared state/context in their dedicated folders.
+- Keep secrets out of Git and use environment variables for deployment-specific configuration.
+- Backend authorization must remain the final security boundary for protected operations.
+
+## License
+
+This project is distributed under the license included in the repository.
