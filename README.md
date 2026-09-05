@@ -134,3 +134,5 @@ This repository is intended for the web interface, client-side state, navigation
 ## License
 
 This project is distributed under the license included in the repository.
+
+<!-- README refresh: documentation-only change. -->
